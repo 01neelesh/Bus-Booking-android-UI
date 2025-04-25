@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Assignment UI</string>
+    <string name="towards">towards</string>
+    <string name="back">back navigation</string>
+    <string name="paybtn">Pay ₹0.00</string>
+    <string name="tv_total_amountInt">₹0.00</string>
+</resources>

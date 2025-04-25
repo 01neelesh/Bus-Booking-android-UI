@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".MainActivity">
+
+
+    <!-- Date and Bus Info -->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/toolbar_back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/ic_arrow_back" />
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Enter Ticket Details"
+            android:textColor="@color/background"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/dateTimeLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:flow_horizontalAlign="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <TextView
+            android:id="@+id/dateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="August 16, 2023 · 4:08 PM"
+            android:textColor="@color/background" />
+
+        <TextView
+            android:id="@+id/plateNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="DL1PC7195"
+            android:textColor="@color/background" />
+
+    </RelativeLayout>
+
+    <!-- Bus Info Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/busInfoCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dateTimeLayout">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/bus_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/ic_bus" />
+
+            <TextView
+                android:id="@+id/bus_No_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/bus_img"
+                android:background="@drawable/edit_text_bg"
+                android:backgroundTint="@color/colorAccent"
+                android:text="433 CL"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_towards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bus_No_text"
+                android:layout_margin="8dp"
+                android:text="@string/towards"
+                android:textColor="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/tv_station"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/bus_No_text"
+                android:layout_margin="8dp"
+                android:layout_toEndOf="@+id/tv_towards"
+                android:text="New Delhi Railway Station"
+                android:textStyle="bold"
+                android:textColor="@color/textPrimary" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Source Stop -->
+
+    <ImageView
+        android:id="@+id/img_location_on"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:maxWidth="24dp"
+        android:maxHeight="24dp"
+        android:src="@drawable/ic_location"
+        app:layout_constraintBottom_toBottomOf="@+id/sourceStop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/sourceStop" />
+
+    <EditText
+        android:id="@+id/sourceStop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Enter Source Stop"
+        android:paddingStart="20dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_location_on"
+        app:layout_constraintTop_toBottomOf="@id/busInfoCard" />
+
+    <ImageView
+        android:id="@+id/img_location_off"
+        android:layout_width="30dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:maxWidth="24dp"
+        android:maxHeight="24dp"
+        android:src="@drawable/ic_location_off"
+        app:layout_constraintBottom_toBottomOf="@+id/destinationStop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/destinationStop" />
+
+    <EditText
+        android:id="@+id/destinationStop"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edit_text_bg"
+        android:hint="Enter Destination Stop"
+        android:paddingStart="20dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintStart_toEndOf="@+id/img_location_off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sourceStop" />
+
+    <!-- Ticket Counter -->
+    <LinearLayout
+        android:id="@+id/ticketCounter"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@drawable/edit_text_bg"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/destinationStop">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="8dp"
+            android:text=" Number of Tickets\n Maximum up to 3 tickets"
+            android:textStyle="normal" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/decreaseButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_minus" />
+
+            <ImageButton
+                android:id="@+id/imgbtn_person"
+                android:layout_width="44dp"
+                android:layout_height="40dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_person" />
+
+            <TextView
+                android:id="@+id/ticketCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="0"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/increaseButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_add" />
+        </LinearLayout>
+    </LinearLayout>    <!-- Favorite Checkbox -->
+    <CheckBox
+        android:id="@+id/favoriteCheckbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Add this bus route to your favorites."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ticketCounter" />
+
+    <!-- Fare Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fareCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favoriteCheckbox">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_bg"
+            android:backgroundTint="@color/fare_bg"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txtView_fare"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Ticket Fare x 00"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txtview_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="₹0.00"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/below"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="10% Discount"
+                    android:textColor="@android:color/holo_green_dark" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="- ₹0.00"
+                    android:textColor="@android:color/holo_green_dark" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="8dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="Total Amount"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_totalAmountInt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="@string/tv_total_amountInt"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Pay Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/payButton"
+        android:layout_width="293dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/corner_button"
+        android:text="@string/paybtn"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
